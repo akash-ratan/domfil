@@ -1,5 +1,4 @@
-import re
-import math
+import re, math
 from collections import Counter
 
 def calculate_entropy(domain):
@@ -15,13 +14,14 @@ def calculate_entropy(domain):
     return entropy
 
 def extract_features(domain):
-    length=len(domain)
-    digits=sum(c.isdigit() for c in domain)
-    hypens=domain.count("-")
-    dots=domain.count(".")
-    sumdomains=max(0,dots-1)
-    special_chars=len(re.findall(r"[^a-zA-Z0-9.-]",domain))
-    entropy=calculate_entropy(domain)
+    length = len(domain)
+    digits = sum(c.isdigit() for c in domain)
+    hypens = domain.count("-")
+    dots = domain.count(".")
+    sumdomains = max(0,dots-1)
+    special_chars = len(re.findall(r"[^a-zA-Z0-9.-]",domain))
+    entropy = calculate_entropy(domain)
+
     features=[
         length,
         digits,
@@ -31,4 +31,5 @@ def extract_features(domain):
         special_chars,
         entropy
     ]
+    
     return features
