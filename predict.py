@@ -94,15 +94,14 @@ def predict_website():
 
     print("\nFINAL RESULT: ML-BENIGN AND DNS-RESOLVED")
     print("Action: ALLOW")
+    
+    if "://" not in url:
+        url = "https://" + url
+    
     print("Opening website in 2 seconds...")
     time.sleep(2)
     webbrowser.open(url)
-
-    if "://" not in url:
-        url = "https://" + url
-
-    webbrowser.open(url)
-
+    
 if __name__ == "__main__":
     try:
         predict_website()
